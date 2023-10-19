@@ -5,5 +5,6 @@ menu = [
     [InlineKeyboardButton(text="🔎 Изменить данные", callback_data="change_data")]
 ]
 menu = InlineKeyboardMarkup(inline_keyboard=menu)
+enter_kb = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text="Меню")]], resize_keyboard=True)
 exit_kb = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text="◀️ Выйти в меню")]], resize_keyboard=True)
 iexit_kb = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="◀️ Выйти в меню", callback_data="menu")]])

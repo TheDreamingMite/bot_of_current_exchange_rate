@@ -44,3 +44,17 @@ def calc_rate():
         else:
             print("Ошибка, источники неверны")
             return ("Ошибка, источники неверны")
+
+def calc_with_comission(amount):
+    comission = 0.05
+    rate = 0
+    for n in range(1, 3):
+        rate = cache.get(n)
+        if rate is not None:
+            return [rate * amount * (1 + comission), comission, rate]
+
+        rate = api_data(URL_API_ADDRESS[n], n)
+        if rate is not None:
+            return [rate * amount * (1 + comission), comission, rate]
+        else:
+            return [0,0,0]
