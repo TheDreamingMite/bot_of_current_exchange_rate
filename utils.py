@@ -14,13 +14,10 @@ def api_data(api_url, key):
     if response.ok:
         data = response.json()
         if key == 1:
-            print('k = 1')
             rate = data['Valute']['USD']['Value']
         elif key == 2:
-            print('k = 2')
             rate = data['rates']['RUB']
         elif key == 3:
-            print('k = 3')
             rate = data['rates']['RUB']
         # Происходит запись в данные кэша
         cache[key] = rate
@@ -31,18 +28,14 @@ def calc_rate():
         rate = cache.get(n)
         if rate is not None:
             # Смотрим в кэш
-            print(f"Курс доллара на {date.today()}: {rate:.1f} руб.")
-            f"Курс доллара на {date.today()}: {rate:.1f} руб."
             return  (f"Курс доллара на {date.today()}: {rate:.1f} руб.")
 
 
         rate = api_data(URL_API_ADDRESS[n], n)
 
         if rate is not None:
-            print(f"Курс доллара на {date.today()}: {rate:.1f} руб.")
             return (f"Курс доллара на {date.today()}: {rate:.1f} руб.")
         else:
-            print("Ошибка, источники неверны")
             return ("Ошибка, источники неверны")
 
 def calc_with_comission(amount):
