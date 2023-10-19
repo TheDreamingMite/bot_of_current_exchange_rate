@@ -14,14 +14,6 @@ router = Router()
 async def start_handler(msg: Message):
     await msg.answer(text.greet.format(name=msg.from_user.full_name), reply_markup=kb.menu)
 
-    async def cmd_start(message: Message):
-        kb = [
-            [KeyboardButton(text="Курс")],
-            [KeyboardButton(text="Расчет")]
-        ]
-        keyboard = ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
-        await message.answer(                             reply_markup=keyboard)
-
 @router.message(F.text == "Меню")
 @router.message(F.text == "Выйти в меню")
 @router.message(F.text == "◀️ Выйти в меню")
