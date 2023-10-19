@@ -27,7 +27,7 @@ def all_usres():
 
     info = ''
     for el in users:
-        info += f'№{el[0]}\tИмя: {el[1]}, комиссия: {el[2]}\n'
+        info += f'Имя: {el[1]}, комиссия: {el[2]}\n'
 
     cur.close()
     conn.close()
